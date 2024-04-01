@@ -10,6 +10,7 @@ const showError = (input, message) => {
 
     const small = formControl.querySelector("small");
     small.innerText = message;
+    
 };
 
 const showSuccess = (input) => {

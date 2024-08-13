@@ -1,0 +1,117 @@
+/* Basis-Stile für alle Elemente */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Sicherstellen, dass Padding und Border in der Breite/Höhe enthalten sind */
+}
+
+/* Allgemeine Stile für den Body */
+body {
+  color: #d61f1f; /* Textfarbe */
+  overflow: hidden; /* Verhindert das Scrollen, da das Canvas den gesamten Bildschirm ausfüllt */
+  background: url("./fond1.jpg") no-repeat; /* Hintergrundbild */
+  background-size: cover; /* Hintergrundbild auf die ganze Fläche skalieren */
+  font-family: Arial, sans-serif; /* Grundschriftart */
+}
+
+/* Container für das gesamte Layout */
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 1440px; /* Maximale Breite des Containers */
+  height: 100%;
+  padding: 10px; /* Innenabstand */
+  margin: 0 auto; /* Zentriert den Container horizontal */
+}
+
+/* Stile für den Info-Bereich */
+.info {
+  max-width: 600px; /* Maximale Breite des Info-Bereichs */
+  font-size: 24px; /* Textgröße */
+  font-weight: 700; /* Fettdruck */
+  margin-bottom: 30px; /* Abstand nach unten */
+}
+
+/* Stil für die Liste innerhalb des Info-Bereichs */
+.info ul {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between; /* Verteilt die Listenelemente gleichmäßig */
+  align-items: center; /* Vertikale Ausrichtung der Listenelemente */
+}
+
+.info ul li {
+  list-style: none; /* Entfernt Aufzählungszeichen */
+}
+
+.info ul li:not(:last-child) {
+  margin-right: 20px; /* Abstand zwischen Listenelementen */
+}
+
+/* Stil für den Kontaktbereich */
+.center {
+  display: flex;
+  align-items: center;
+  margin: 40px auto;
+  background-color: rgba(252, 252, 252, 0.568);
+  border-radius: 20px;
+  flex-direction: row;
+  max-width: 1200px;
+  justify-content: space-between;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+/* Stil für den Difficulty-Button */
+#changeDif {
+  font-size: 18px; /* Textgröße */
+  font-weight: 700; /* Fettdruck */
+  margin-top: 5px; /* Abstand nach oben */
+  border: none; /* Kein Rahmen */
+  outline: none; /* Kein Fokus-Rahmen */
+  width: 150px; /* Breite */
+  height: 32px; /* Höhe */
+  background-color: #fff; /* Hintergrundfarbe */
+  color: #1a4636; /* Textfarbe */
+  display: flex;
+  justify-content: center; /* Zentriert den Text horizontal */
+  align-items: center; /* Zentriert den Text vertikal */
+  cursor: pointer; /* Mauszeiger als Hand anzeigen */
+  transition: all 0.2s ease; /* Übergangseffekte für den Hover-Zustand */
+}
+
+/* Stil für den Hover-Zustand des Difficulty-Buttons */
+#changeDif:hover {
+  background-color: #00ffa6; /* Hintergrundfarbe bei Hover */
+  color: #fff; /* Textfarbe bei Hover */
+}
+
+/* Stil für das Canvas-Element */
+canvas#canvas {
+  border: 30px outset rgba(0, 0, 0, 0.8); /* Rahmen um das Canvas */
+  box-shadow: 0px 0px 0px black, 0 0 3em rgb(0, 0, 250), 0 0 3em rgb(0, 0, 250); /* Schatten für das Canvas */
+  margin: 0 auto; /* Zentriert das Canvas horizontal */
+  display: block; /* Canvas als Block-Element */
+  background-color: rgba(0, 150, 200, 0.8); /* Hintergrundfarbe des Canvas */
+}
+
+/* Medienabfragen für mobile Geräte */
+@media (max-width: 650px) {
+  .info {
+    font-size: 18px; /* Kleinere Textgröße auf kleinen Bildschirmen */
+  }
+  .info ul {
+    flex-direction: column; /* Listenelemente untereinander auf kleinen Bildschirmen */
+    align-content: center; /* Zentriert die Listenelemente vertikal */
+    justify-content: center; /* Zentriert die Listenelemente horizontal */
+  }
+  .info ul li:not(:last-child) {
+    margin: 0 0 10px 0; /* Abstand nach unten zwischen den Listenelementen */
+  }
+  #changeDif {
+    font-size: 16px; /* Kleinere Textgröße für den Button auf kleinen Bildschirmen */
+  }
+}

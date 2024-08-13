@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/login.css">
+    <title>Snake Login</title>
+</head>
+<body>
+    <div class="container">
+        <form class="form" id="form">
+            <h2>Login</h2>
+            <div class="form-control">
+                <label for="username">Username</label>
+                <input type="text" id="username" data-name="username" placeholder="Bitte gib deinen Username ein">
+                <small>error</small>
+            </div>
+            <div class="form-control">
+                <label for="email">Email</label>
+                <input type="text" id="email" data-name="email" placeholder="Bitte gib deinen Email ein">
+                <small>error</small>
+            </div>
+            <div class="form-control">
+                <label for="password">Password</label>
+                <input type="password" id="password" data-name="password" placeholder="Bitte gib deinen Password ein">
+                <small>error</small>
+            </div>
+            <div class="form-control">
+                <label for="password2">Password wiederholen!</label>
+                <input type="password" id="password2"  data-name="password" placeholder="Widerhole bitte deinen Password">
+                <small>error</small>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <script src="./js/login.js"></script>
+</body>
+</html>

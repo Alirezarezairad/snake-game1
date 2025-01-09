@@ -405,6 +405,55 @@ btnChange.addEventListener('click', (e) => {
 		restart();
 	}
 });
+// Variablen für Touch-Start-Koordinaten
+let startX = 0;
+let startY = 0;
+
+// Eventlistener für Touchstart
+canvas.addEventListener('touchstart', (e) => {
+    const touch = e.touches[0]; // Erster Touchpunkt
+    startX = touch.clientX;
+    startY = touch.clientY;
+});
+
+// Eventlistener für Touchmove
+canvas.addEventListener('touchmove', (e) => {
+    e.preventDefault(); // Verhindert das Scrollen während des Spiels
+
+    const touch = e.touches[0];
+    const deltaX = touch.clientX - startX;
+    const deltaY = touch.clientY - startY;
+
+    // Überprüfen der Bewegungsrichtung
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+        // Horizontaler Wisch
+        if (deltaX > 0 && dir !== 'left') {
+            // Nach rechts wischen
+            turnRight();
+        } else if (deltaX < 0 && dir !== 'right') {
+            // Nach links wischen
+            turnLeft();
+        }
+    } else {
+        // Vertikaler Wisch
+        if (deltaY > 0 && dir !== 'up') {
+            // Nach unten wischen
+            turnDown();
+        } else if (deltaY < 0 && dir !== 'down') {
+            // Nach oben wischen
+            turnUp();
+        }
+    }
+
+    // Reset Touch-Start-Koordinaten
+    startX = touch.clientX;
+    startY = touch.clientY;
+});
+
+// Eventlistener für Touchend (optional, falls nötig)
+canvas.addEventListener('touchend', () => {
+    // Hier kannst du weitere Aktionen hinzufügen, falls nötig
+});
 
 
 // Additional functions

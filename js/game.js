@@ -349,6 +349,49 @@ document.addEventListener('keydown', (e) => {
 	}
 });
 
+// Variablen, um die Position des Touch-Starts und -Endes zu speichern
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+
+// Funktion zur Erkennung der Wischrichtung
+function handleSwipe() {
+    const diffX = touchEndX - touchStartX;
+    const diffY = touchEndY - touchStartY;
+
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+        // Horizontaler Swipe
+        if (diffX > 0) {
+            turnRight(); // Wisch nach rechts
+        } else {
+            turnLeft(); // Wisch nach links
+        }
+    } else {
+        // Vertikaler Swipe
+        if (diffY > 0) {
+            turnDown(); // Wisch nach unten
+        } else {
+            turnUp(); // Wisch nach oben
+        }
+    }
+}
+
+// Ereignislistener für Touch-Steuerung
+canvas.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+});
+
+canvas.addEventListener('touchmove', (e) => {
+    e.preventDefault(); // Verhindert, dass der Bildschirm scrollt
+});
+
+canvas.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].clientX;
+    touchEndY = e.changedTouches[0].clientY;
+    handleSwipe(); // Wischrichtung auswerten
+});
 
 // schwerichkeiten
 btnChange.addEventListener('click', (e) => {
